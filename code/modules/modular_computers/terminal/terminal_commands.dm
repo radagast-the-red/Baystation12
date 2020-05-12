@@ -113,6 +113,7 @@ Subtypes
 	name = "relays"
 	man_entry = list("Format: relays", "Gives the number of active relays found on the network.")
 	pattern = "^relays$"
+	req_access = list(access_network)
 
 /datum/terminal_command/relays/proper_input_entered(text, mob/user, terminal)
 	return "Number of relays found: [ntnet_global.relays.len]"
@@ -165,6 +166,7 @@ Subtypes
 	name = "ping"
 	man_entry = list("Format: ping nid", "Checks connection to the given nid.")
 	pattern = "^ping"
+	req_access = list(access_network)
 
 /datum/terminal_command/ping/proper_input_entered(text, mob/user, datum/terminal/terminal)
 	. = list("pinging ...")
@@ -220,6 +222,7 @@ Subtypes
 		"It is recommended that the user ensure that the target device is accessible."
 	)
 	pattern = "^proxy"
+	req_access = list(access_network)
 
 /datum/terminal_command/proxy/proper_input_entered(text, mob/user, datum/terminal/terminal)
 	var/datum/extension/interactive/ntos/comp = terminal.computer
